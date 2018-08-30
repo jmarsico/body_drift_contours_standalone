@@ -1,0 +1,10 @@
+ofxCv
+ofxEasing
+ofxFastFboReader
+ofxGui
+ofxIpVideoGrabber
+ofxJSON
+ofxOpenCv
+ofxOsc
+ofxPolylineMerger
+ofxTween

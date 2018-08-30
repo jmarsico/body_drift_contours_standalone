@@ -1,0 +1,7 @@
+{
+	"syphonIn" : "td01",
+	"syphonOut" : "of01",
+	"oscPort" : 9001,
+	"camNumber" : 0,
+	"oscOutPort" : 10001
+}
