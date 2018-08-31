@@ -6,7 +6,6 @@
 #include "ofxOsc.h"
 #include "ofxPolylineMerger.h"
 #include "ofxJSON.h"
-#include "ofxFastFboReader.h"
 #include "IPVideoGrabber.h"
 
 using namespace ofx;
