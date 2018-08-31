@@ -75,9 +75,7 @@ public:
     ofFbo outputFbo;
     
     
-    //fast fbo reader to pull down the pixels from syphon
-    ofxFastFboReader reader;
-    
+    //fast fbo reader to pull down the pixels from syphon    
     
 	//for gaining
     ofxOscReceiver oscIn;
