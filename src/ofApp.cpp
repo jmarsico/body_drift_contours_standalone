@@ -12,14 +12,14 @@ void ofApp::setup(){
     screenWidth = ofGetWidth();
     screenHeight = ofGetHeight();
     
-    arduino.connect("/dev/tty.usbserial-000023FA", 57600);
-    ofAddListener(arduino.EInitialized, this, &ofApp::setupArduino);
-    bSetupArduino	= false;
+
     
     for(int i = 0; i < 4; i++){
         potVals.push_back(0);
     
     }
+
+    ofLog() << "before grabber init";
 
     grabber.initGrabber(1280/4, 720/4);
     
@@ -50,6 +50,7 @@ void ofApp::setup(){
     gui.loadFromFile("settings.xml");
     gui.setPosition(10, ofGetHeight() - 20 - blobGui.getHeight() - gui.getHeight());
     
+    ofLog() << "before osc setp";
 
     //set our OSC listener
     oscIn.setup(config["oscPort"].asInt());
@@ -79,6 +80,13 @@ void ofApp::setup(){
     
     bShowGui = false;
 
+    ofLog() << "before arduino stuff";
+
+    // arduino.connect("/dev/ttyUSB1", 57600);
+    ofAddListener(arduino.EInitialized, this, &ofApp::setupArduino);
+    // bSetupArduino	= false;
+    // arduino.sendReset();
+
 }
 
 //--------------------------------------------------------------
@@ -86,9 +94,15 @@ void ofApp::update(){
 
     //update the grabber;
     grabber.update();
+
+    // if(ofGetElapsedTimeMillis() > 10000 && !bSetupArduino){
+    //         arduino.sendFirmwareVersionRequest();
+
+    //     setupArduino(2);
+    // }
     
     //update the artduino
-    updateArduino();
+    // updateArduino();
     
     //if we have a new frame
     if(grabber.isFrameNew()){
@@ -294,8 +308,8 @@ void ofApp::setupArduino(const int & version) {
     bSetupArduino = true;
     
     // print firmware name and version to the console
-    ofLogNotice() << arduino.getFirmwareName();
-    ofLogNotice() << "firmata v" << arduino.getMajorFirmwareVersion() << "." << arduino.getMinorFirmwareVersion();
+    ofLogNotice("arduino") << arduino.getFirmwareName();
+    ofLogNotice("arduino") << "firmata v" << arduino.getMajorFirmwareVersion() << "." << arduino.getMinorFirmwareVersion();
     
     // Note: pins A0 - A5 can be used as digital input and output.
     // Refer to them as pins 14 - 19 if using StandardFirmata from Arduino 1.0.

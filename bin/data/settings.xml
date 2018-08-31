@@ -3,13 +3,14 @@
 	<Min_area>5</Min_area>
 	<Max_area>1580.21</Max_area>
 	<Holes>1</Holes>
-	<smoothing_size>6</smoothing_size>
+	<smoothing_size>29</smoothing_size>
 	<max_numlines>10</max_numlines>
 	<contour_iterations>60</contour_iterations>
-	<lerp_amt>0.0964125</lerp_amt>
+	<lerp_amt>0.355</lerp_amt>
 	<numPoints>1000</numPoints>
 	<frames_between>10</frames_between>
 <group/>
 <use_ipad>1</use_ipad>
 	<Num_Line_Draw>200</Num_Line_Draw>
+<crop>0</crop>
 </group>

@@ -109,9 +109,9 @@ public:
 //    std::shared_ptr<Video::IPVideoGrabber> grabber;
     ofVideoGrabber grabber;
     ofPixels cropped;
-    
+     void setupArduino(const int & version);
 private:
-    void setupArduino(const int & version);
+   
     void digitalPinChanged(const int & pinNum);
     void analogPinChanged(const int & pinNum);
     void updateArduino();
